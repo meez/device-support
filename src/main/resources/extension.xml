@@ -1,0 +1,31 @@
+<extension xmlns="http://ns.adobe.com/air/extension/3.5">
+	<id>com.meez.DeviceSupport</id>
+	<versionNumber>0.1.0</versionNumber>
+	<platforms>
+		<platform name="Android-ARM">
+			<applicationDeployment>			
+				<nativeLibrary>devicesupport.jar</nativeLibrary>
+				<initializer>meez.devicesupport.Extension</initializer>
+				<finalizer>meez.devicesupport.Extension</finalizer>
+			</applicationDeployment>		
+		</platform>
+        <platform name="Android-x86">
+			<applicationDeployment>
+				<nativeLibrary>devicesupport.jar</nativeLibrary>
+				<initializer>meez.devicesupport.Extension</initializer>
+				<finalizer>meez.devicesupport.Extension</finalizer>
+			</applicationDeployment>
+		</platform>
+		<platform name="iPhone-ARM">
+			<applicationDeployment>
+				<nativeLibrary>libDeviceSupport.a</nativeLibrary>
+				<initializer>DeviceSupportExtInitializer</initializer>
+				<finalizer>DeviceSupportExtFinalizer</finalizer>
+			</applicationDeployment>
+		</platform>
+        <platform name="default">
+            <applicationDeployment/>
+        </platform>
+    </platforms>
+</extension>
+

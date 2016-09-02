@@ -1,0 +1,60 @@
+<project name="Native Android extension build" basedir="." default="all">
+
+    <!-- Paths -->
+    <property name="src.java" location="src"/>
+    <property name="build.root" value="build"/>
+    <property name="build.classes" value="${build.root}/classes"/>
+    <property name="build.jar" value="${build.root}/jar"/>
+
+    <!-- Class Path -->
+    <path id="class.path">
+        <pathelement location="${android.sdk.platform}/android.jar"/>
+        <pathelement location="${air.sdk.home}/lib/android/FlashRuntimeExtensions.jar"/>
+        <pathelement location="${android.sdk.home}/extras/android/support/v4/android-support-v4.jar"/>
+        <!-- Include additional required jar files in lib.root -->
+        <fileset dir="lib">
+            <include name="**/*.jar"/>
+        </fileset>
+    </path>
+
+    <!-- Init -->
+    <target name="init">
+        <tstamp>
+            <format property="build.time" pattern="yyyy/MM/dd hh:mm"/>
+        </tstamp>
+        <mkdir dir="${build.root}"/>
+    </target>
+
+    <!-- Clean -->
+    <target name="clean">
+        <delete dir="${build.root}"/>
+    </target>
+
+    <!-- All -->
+    <target name="all" depends="clean, package"/>
+
+    <!-- Compile -->
+    <target name="compile" depends="init">
+
+        <mkdir dir="${build.classes}"/>
+        <javac source="1.6" target="1.6" srcdir="${src.java}" destdir="${build.classes}" includeantruntime="false">
+            <classpath refid="class.path"/>
+        </javac>
+
+    </target>
+
+    <!-- Package -->
+    <target name="package" depends="compile">
+        
+        <mkdir dir="${build.jar}"/>
+        <jar destfile="${build.jar}/${project.artifactId}.jar">
+            <manifest>
+                <attribute name="Implementation-Title" value="${project.name} Android"/>
+                <attribute name="Build-Time" value="${build.time}"/>
+            </manifest>
+            <fileset dir="${build.classes}"/>
+        </jar>
+
+    </target>
+
+</project>

@@ -1,0 +1,22 @@
+# Build and Release Folders
+build/
+out/
+gen/
+build.properties
+
+# IDE
+# IntelliJ
+.idea
+*.iml
+*.ipr
+*.iws
+# FlashDevelop
+bat/
+obj/
+*.as3proj
+# XCode
+xcuserdata
+Profile
+
+# Other files and folders
+.DS_Store
