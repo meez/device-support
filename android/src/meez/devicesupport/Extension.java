@@ -71,7 +71,7 @@ public class Extension extends BaseANE
 
         Log.d(tag, "getAPILevel()=" + apiLevel);
 
-        return 0;
+        return apiLevel;
     }
 
     /** Refresh view */
