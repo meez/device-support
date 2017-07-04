@@ -54,7 +54,7 @@ public class Extension extends BaseANE
                 return FREObject.newObject(getDeviceId());
             }
         });
-        register(new BaseFREFunction("nativeBack",new Class[]{}) {
+        register(new BaseFREFunction("navigateBack",new Class[]{}) {
             protected FREObject execute(FREObject[] params) throws Exception
             {
                 activeCtx.getActivity().onBackPressed();

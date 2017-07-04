@@ -54,14 +54,14 @@ public class DeviceSupportNativeImpl implements DeviceSupport
         this._context.call("refreshView");
     }
 
-    /** Native Back */
-    public function nativeBack():void
+    /** Navigate Back */
+    public function navigateBack():void
     {
         // only relevant on android
         if(Capabilities.manufacturer.indexOf("Android")==-1)
             return;
 
-        this._context.call("nativeBack");
+        this._context.call("navigateBack");
     }
 }
 

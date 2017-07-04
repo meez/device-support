@@ -35,8 +35,8 @@ public class DeviceSupportDefaultImpl implements DeviceSupport
         trace("[DeviceSupport.Default] refreshView() stubbed");
     }
 
-    /** Native Back */
-    public function nativeBack():void
+    /** Navigate Back */
+    public function navigateBack():void
     {
         trace("[DeviceSupport.Default] nativeBack() stubbed");
     }
