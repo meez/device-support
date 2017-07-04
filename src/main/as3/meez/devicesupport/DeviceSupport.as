@@ -29,6 +29,13 @@ public interface DeviceSupport
      *
      */
     function getAPILevel():Number;
+
+    /** Navigate Back
+     *
+     * Triggers an Android back action that will back out of the current Air activity
+     *
+     */
+    function navigateBack():void;
 }
 
 }

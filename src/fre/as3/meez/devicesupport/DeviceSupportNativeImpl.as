@@ -2,6 +2,7 @@ package meez.devicesupport
 {
 
 import flash.external.ExtensionContext;
+import flash.system.Capabilities;
 
 /** DeviceSupport Native Implementation */
 public class DeviceSupportNativeImpl implements DeviceSupport
@@ -51,6 +52,16 @@ public class DeviceSupportNativeImpl implements DeviceSupport
     public function refreshView():void
     {
         this._context.call("refreshView");
+    }
+
+    /** Navigate Back */
+    public function navigateBack():void
+    {
+        // only relevant on android
+        if(Capabilities.manufacturer.indexOf("Android")==-1)
+            return;
+
+        this._context.call("navigateBack");
     }
 }
 
